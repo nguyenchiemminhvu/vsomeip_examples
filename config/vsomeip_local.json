@@ -1,0 +1,77 @@
+{
+    "unicast": "172.17.0.2",
+    "logging": {
+        "level": "debug",
+        "console": true,
+        "file": {
+            "enable": true,
+            "path": "./vsomeip.log",
+            "max_file_size": "5M"
+        }
+    },
+    "applications": {
+        "service-app": {
+            "id": "0x1111",
+            "unicast": "172.17.0.2"
+        },
+        "client-app": {
+            "id": "0x2222",
+            "unicast": "172.17.0.2"
+        }
+    },
+    "services": [
+        {
+            "service": "0x1234",
+            "instance": "0x5678",
+            "reliable": [
+                {
+                    "port": "30509",
+                    "protocol": "tcp"
+                }
+            ],
+            "unreliable": [
+                {
+                    "port": "30491",
+                    "protocol": "udp"
+                }
+            ],
+            "methods": [
+                {
+                    "id": "0x0001",
+                    "description": "Perform a basic operation"
+                }
+            ],
+            "events": [
+                {
+                    "id": "0x8001",
+                    "description": "Send periodic updates",
+                    "reliable": true
+                },
+                {
+                    "id": "0x8002",
+                    "description": "Send critical alerts",
+                    "reliable": false
+                }
+            ],
+            "eventgroups" : [
+                {
+                    "eventgroup" : "0x0001",
+                    "events" : [ "0x8001", "0x8002" ]
+                }
+            ]
+        }
+    ],
+    "service-discovery": {
+        "multicast": "224.244.224.245",
+        "port": "30490",
+        "protocol": "udp",
+        "initial_delay_min": "10",
+        "initial_delay_max": "100",
+        "repetitions_base_delay": "200",
+        "cycle_time": "2000"
+    },
+    "routing": {
+        "enabled": true,
+        "max_retry_count": 3
+    }
+}
