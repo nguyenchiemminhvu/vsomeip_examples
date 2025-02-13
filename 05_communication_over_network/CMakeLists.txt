@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(hello_vsomeip)
+project(communication_over_network)
 
 set(CMAKE_CXX_STANDARD 17)
 set(VSOMEIP_NAME "vsomeip3")
