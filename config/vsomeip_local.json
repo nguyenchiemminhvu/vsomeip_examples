@@ -1,5 +1,5 @@
 {
-    "unicast": "172.17.0.2",
+    "unicast": "172.17.0.16",
     "logging": {
         "level": "debug",
         "console": true,
@@ -12,11 +12,11 @@
     "applications": {
         "service-app": {
             "id": "0x1111",
-            "unicast": "172.17.0.2"
+            "unicast": "172.17.0.16"
         },
         "client-app": {
             "id": "0x2222",
-            "unicast": "172.17.0.2"
+            "unicast": "172.17.0.16"
         }
     },
     "services": [
