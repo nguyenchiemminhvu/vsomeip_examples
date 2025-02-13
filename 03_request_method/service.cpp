@@ -51,7 +51,7 @@ void on_message_received(const std::shared_ptr<vsomeip::message>& msg)
     }
     else
     {
-        std::string content = "Congratulations! Your request has been processed successfully!";
+        std::string content = "Sorry! The service does not recognize the method id: " + std::to_string(method_id);
         response_payload->set_data(reinterpret_cast<const vsomeip::byte_t*>(content.c_str()), content.length());
     }
     response->set_payload(response_payload);
